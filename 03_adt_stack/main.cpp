@@ -1,29 +1,39 @@
-// TASK 03 -- Using the Stack ADT
-//
-// Read this file without ever opening Stack.cpp. You should still be
-// able to tell exactly what this program does. That's the ADT promise
-// in action: the header alone is enough documentation to use the type.
-
 #include <iostream>
 #include "Stack.h"
 
 int main() {
-    Stack s;
+    Stack stack;
 
-    s.push(10);
-    s.push(20);
-    s.push(30);
+    std::cout << "Initially empty: "
+              << (stack.isEmpty() ? "yes" : "no") << std::endl;
 
-    std::cout << "Stack size: " << s.size() << std::endl;
-    std::cout << "Top: " << s.top() << std::endl;
+    stack.push(10);
+    stack.push(20);
+    stack.push(30);
 
-    s.pop();
-    std::cout << "After pop, top: " << s.top() << std::endl;
-    std::cout << "Is empty? " << (s.isEmpty() ? "yes" : "no") << std::endl;
+    std::cout << "Size after pushes: " << stack.size() << std::endl;
+    std::cout << "Top value: " << stack.peek() << std::endl;
+
+    std::cout << "Popped value: " << stack.pop() << std::endl;
+    std::cout << "New top value: " << stack.peek() << std::endl;
+    std::cout << "Size after pop: " << stack.size() << std::endl;
+
+    stack.pop();
+    stack.pop();
+
+    int emptyResult = stack.pop();
+    std::cout << "Empty pop returned: " << emptyResult << std::endl;
+
+    Stack fullStack;
+
+    for (int i = 1; i <= 100; i++) {
+        fullStack.push(i);
+    }
+
+    fullStack.push(101);
+    std::cout << "Full stack size: " << fullStack.size() << std::endl;
+    std::cout << "Is full: "
+              << (fullStack.isFull() ? "yes" : "no") << std::endl;
 
     return 0;
 }
-
-// TRY IT LIVE: ask the class "what data structure is UNDER this stack?"
-// Nobody can answer just from reading this file, and that's correct --
-// it's not their business. Then open Stack.h to reveal it's a vector.
