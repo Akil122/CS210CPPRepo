@@ -29,3 +29,14 @@ bool Stack::isFull() const {
 int Stack::size() const {
     return topIndex + 1;
 }
+
+int Stack::pop() {
+    if (isEmpty()) {
+        std::cout << "Stack is empty." << std::endl;
+        return -1;
+    }
+
+    int value = data[topIndex];
+    topIndex--;
+    return value;
+}
