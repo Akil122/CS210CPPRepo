@@ -1,4 +1,18 @@
+#include <iostream>
 #include "Stack.h"
+
+
+void Stack::push(int value) {
+    if (isFull()) {
+        std::cout << "Stack is full." << std::endl;
+        return;
+    }
+
+    topIndex++;
+    data[topIndex] = value;
+}
+
+
 
 Stack::Stack() {
     topIndex = -1;
