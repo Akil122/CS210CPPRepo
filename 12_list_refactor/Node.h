@@ -1,22 +1,10 @@
-//
-// Created by Akil Shaik on 9/17/26.
-//
-
-# pragma once
-#include <iostream>
-#include <ostream>
+#pragma once
 
 template <typename T>
 class Node {
 public:
-    T:value;
-    Node<T> *next;
+    T* data;
+    Node<T>* next;
 
-    Node(T * value) {
-        this->value=value;
-        this->next=nullptr;
-    }
-    void print() {
-        cout<<value<<endl;
-    }
+    explicit Node(T* value) : data(value), next(nullptr) {}
 };
